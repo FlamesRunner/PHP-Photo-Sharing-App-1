@@ -173,3 +173,37 @@ $ touch src/app_data/user/.keep
 
 Ammar@Haseeb-HP MINGW64 /c/xampp/htdocs/Practice/Applications/PHP/PHP-Photo-Sharing-App-1 (master)
 $ touch src/assets/.keep
+
+Ammar@Haseeb-HP MINGW64 /c/xampp/htdocs/Practice/Applications/PHP/PHP-Photo-Sharing-App-1 (master)
+$ git add .
+
+Ammar@Haseeb-HP MINGW64 /c/xampp/htdocs/Practice/Applications/PHP/PHP-Photo-Sharing-App-1 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   .gitignore
+        new file:   git-test.bash
+        new file:   src/app_data/user/.keep
+        new file:   src/assets/.keep
+        new file:   src/includes/db.in.php
+        new file:   src/includes/login.in.php
+        new file:   src/includes/signup.in.php
+
+
+Ammar@Haseeb-HP MINGW64 /c/xampp/htdocs/Practice/Applications/PHP/PHP-Photo-Sharing-App-1 (master)
+$ git commit
+Aborting commit due to empty commit message.
+
+Ammar@Haseeb-HP MINGW64 /c/xampp/htdocs/Practice/Applications/PHP/PHP-Photo-Sharing-App-1 (master)
+$ git commit
+[master 9c411c2] testing again
+ 7 files changed, 175 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 git-test.bash
+ create mode 100644 src/app_data/user/.keep
+ create mode 100644 src/assets/.keep
+ create mode 100644 src/includes/db.in.php
+ create mode 100644 src/includes/login.in.php
+ create mode 100644 src/includes/signup.in.php
