@@ -1,0 +1,2 @@
+#Photo Sharing App concept
+This is a photo-sharing app concept that I built to help me build the skill of optimizing user stored data for a large number of users as well as create a simple PHP SPA (Single Page Application) with an intuitive and modern design.
