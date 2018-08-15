@@ -2,6 +2,7 @@
     if (!isset($_SESSION)) {
         session_start();
     }
+    require_once 'src/includes/db.in.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +20,7 @@
                 <input id="search-bar" name="search-bar" placeholder="People, Places, Topics...">
             </div>
             <h1 id="top-title">PHP Photo Sharing App</h1>
-            <div id="login-signup">
+            <div id="user">
                 <?php if (!isset($_SESSION['username'])) { ?>
                     <button id="login-button">Login</button>
                     <button id="signup-button">Signup</button>
@@ -27,8 +28,17 @@
                     <a href="index.php?status=profile%id=<?= $_SESSION['username'] ?>" id="top-username">
                         <?php echo $_SESSION['username'];?>
                     </a>
-                    <?php $topFileExtension = "SELECT profile_pic_ext FROM users WHERE username=" . $_SESSION['username']; ?>
-                    <img src="src/app_data/user/<?= $_SESSION['username'] ?>/<?= $_SESSION['username'] ?>-profile.<?= $topFileExtension ?>"></img>
+                    <?php 
+                        $profilePic = "SELECT profile_pic FROM users WHERE username=" . "'" . $_SESSION['username'] . "'";
+                        $profilePicResult = mysqli_query($conn, $profilePic);
+                        $profilePicResultCheck = mysqli_num_rows($profilePicResult);
+                    ?>
+                    <?php if ($profilePicResultCheck > 0) { ?>
+                        <img id="profile-pic" src="src/app_data/user/<?= $profilePic ?>"></img>
+                    <?php } else if ($profilePicResultCheck < 1) { ?>
+                        <img id="profile-pic" src="src/images/default-profile-pic.jpg"></img>
+                    <?php } ?>
+                    <button id="user-dropdown" onclick="openUserDropdown"><!-- Logout and other options --></button>
                 <?php } ?>
             </div>
         </div>
@@ -41,20 +51,20 @@
 
         <div id="menu" style="display:none">
             <div id="menu-header">
-                <i class="fa fa-home" style="color:white; font-size:25px;"></i>
-                <i class="fa fa-gear" style="color:white; font-size:25px;"></i>
+                <a href="index.php"><i class="fa fa-home" style="color:white; font-size:25px;"></i></a>
+                <a href="index.php?status=settings"><i class="fa fa-gear" style="color:white; font-size:25px;"></i></a>
             </div>
             <div class="menu-item">
-                <p>Trending</p>
+                <a href="index.php?status=trending">Trending</a>
             </div>
             <div class="menu-item">
-                <p>Recomended</p>
+                <a href="index.php?status=recommended">Recomended</a>
             </div>
             <div class="menu-item">
-                <p>Promote</p>
+                <a href="index.php?status=promote">Promote</a>
             </div>
             <div class="menu-item">
-                <p>About</p>
+                <a href="index.php?status=about">About</a>
             </div>
         </div>
 
