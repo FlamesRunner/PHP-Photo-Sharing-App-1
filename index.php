@@ -18,28 +18,11 @@
             </div>
             <div id="search">
                 <input id="search-bar" name="search-bar" placeholder="People, Places, Topics...">
+                <?php require_once 'src/scripts/php/top-search.php'; ?>
             </div>
             <h1 id="top-title">PHP Photo Sharing App</h1>
             <div id="user">
-                <?php if (!isset($_SESSION['username'])) { ?>
-                    <button id="login-button">Login</button>
-                    <button id="signup-button">Signup</button>
-                <?php } else if (isset($_SESSION['username'])) { ?>
-                    <a href="index.php?status=profile%id=<?= $_SESSION['username'] ?>" id="top-username">
-                        <?php echo $_SESSION['username'];?>
-                    </a>
-                    <?php 
-                        $profilePic = "SELECT profile_pic FROM users WHERE username=" . "'" . $_SESSION['username'] . "'";
-                        $profilePicResult = mysqli_query($conn, $profilePic);
-                        $profilePicResultCheck = mysqli_num_rows($profilePicResult);
-                    ?>
-                    <?php if ($profilePicResultCheck > 0) { ?>
-                        <img id="profile-pic" src="src/app_data/user/<?= $profilePic ?>"></img>
-                    <?php } else if ($profilePicResultCheck < 1) { ?>
-                        <img id="profile-pic" src="src/images/default-profile-pic.jpg"></img>
-                    <?php } ?>
-                    <button id="user-dropdown" onclick="openUserDropdown"><!-- Logout and other options --></button>
-                <?php } ?>
+                <?php require_once 'src/scripts/php/top-user.php'; ?>
             </div>
         </div>
         
@@ -58,7 +41,7 @@
                 <a href="index.php?status=trending">Trending</a>
             </div>
             <div class="menu-item">
-                <a href="index.php?status=recommended">Recomended</a>
+                <a href="index.php?status=recommended">Recommended</a>
             </div>
             <div class="menu-item">
                 <a href="index.php?status=promote">Promote</a>
