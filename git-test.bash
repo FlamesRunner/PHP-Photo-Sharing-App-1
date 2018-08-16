@@ -207,3 +207,20 @@ $ git commit
  create mode 100644 src/includes/db.in.php
  create mode 100644 src/includes/login.in.php
  create mode 100644 src/includes/signup.in.php
+
+Ammar@Haseeb-HP MINGW64 /c/xampp/htdocs/Practice/Applications/PHP/PHP-Photo-Sharing-App-1 (master)
+$ git remote add github https://github.com/ammar-s847/PHP-Photo-Sharing-App-1.git
+
+Ammar@Haseeb-HP MINGW64 /c/xampp/htdocs/Practice/Applications/PHP/PHP-Photo-Sharing-App-1 (master)
+$ git push -u github master
+Enumerating objects: 47, done.
+Counting objects: 100% (47/47), done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (39/39), done.
+Writing objects: 100% (47/47), 8.40 KiB | 573.00 KiB/s, done.
+Total 47 (delta 12), reused 0 (delta 0)
+remote: Resolving deltas: 100% (12/12), done.
+To https://github.com/ammar-s847/PHP-Photo-Sharing-App-1.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'github'.
+
