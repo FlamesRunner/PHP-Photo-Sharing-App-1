@@ -1,7 +1,5 @@
 <?php
-    if (!isset($_SESSION)) {
-        session_start();
-    }
+    session_start();
     require_once 'src/includes/db.in.php';
 ?>
 
@@ -10,6 +8,7 @@
     <head>
         <title>Photo Sharing app</title>
         <link href="src/scripts/css/main.css" type="rel/stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" type="rel/stylesheet">
     </head>
     <body>
         <div id="top">
@@ -75,7 +74,7 @@
         </div>
 
         <div id="bottom">
-            <?php require_once 'src/components/bottom.php'; ?>
+            <?php include_once 'src/components/bottom.php'; ?>
         </div>
     </body>
 </html>
