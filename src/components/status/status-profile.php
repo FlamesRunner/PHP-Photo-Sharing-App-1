@@ -13,24 +13,27 @@
 <div id="photos">
     <?php
         $photoQuantity = "SELECT * FROM pictures WHERE username=" . "'" . $_GET['username'] . "'" ; 
-            
         $photoQuantityResult = mysqli_query($conn, $photoQuantity);
         $photoQuantityResultCheck = mysqli_num_rows($photoQuantityResult);
-
-        function findImage($number, $id) {
-            // Create a multidimensional array of the user's photos and match them to their URL from the database.
-            $photos = array();
-            
+        $photoRow = mysqli_fetch_assoc($photoQuantityResultCheck);
+        function imageSortFunction($a, $b) {
+            return strtotime($a['created']) - strtotime($b['created']);
         }
+        // Create a multidimensional array of the user's photos and match them to their URL from the database.
+        $photos = array();
+        for ($id = 0; $id <= $photoQuantityResultCheck; $i++) {
+            $photos[$id] = array($photoRow['created'], $photoRow['text'], $photoRow['url']);
+        }
+        usort($photos, 'imageSortFunction');
     ?>
     <div class="photo-collage">
 
     </div>
     <div class="photo-list">
         <?php if ($photoQuantityResultCheck > 0): ?>
-            <?php for ($i = 0; $i <= $photoQuantity; $i++) { ?>
-                <img class="photo-list" href="<?= findImage($i, $_SESSION['username']) ?>"></img>
-            <?php } ?>
+            <?php for ($i = 0; $i <= $photoQuantityResultCheck; $i++): ?>
+                <img class="photo-list" href="<?= $photos[$i]['url'] ?>"></img>
+            <?php endfor; ?>
         <?php elseif ($photoQuantityResultCheck == 0): ?>
             <style>
                 #no-photos {

@@ -11,7 +11,7 @@
         $profilePicResultCheck = mysqli_num_rows($profilePicResult);
     ?>
     <?php if ($profilePicResultCheck > 0): ?>
-        <img id="profile-pic" src="src/app_data/user/<?= $profilePic ?>"></img>
+        <img id="profile-pic" src="src/app_data/user/<?= $profilePicResult ?>"></img>
     <?php elseif ($profilePicResultCheck < 1): ?>
         <img id="profile-pic" src="src/images/default-profile-pic.jpg"></img>
     <?php endif; ?>
