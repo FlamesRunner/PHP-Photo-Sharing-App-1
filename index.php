@@ -8,9 +8,10 @@
     <head>
         <title>Photo Sharing app</title>
         <link href="src/scripts/css/main.css" type="rel/stylesheet">
+        <script type="text/javascript" src="src/scripts/javascript/main.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" type="rel/stylesheet">
     </head>
-    <body>
+    <body onload="onLoad()">
         <div id="top">
             <div id="menu">
                 <i class="fa fa-bars" style="color:white; font-size:25px;"></i>
@@ -50,6 +51,10 @@
             </div>
         </div>
 
+        <div id="main-scroll">
+            <p id="main-scroll-text">&rarr</p>
+        </div>
+
         <div id="main">
             <div id="home">
                 <div class="home-banner">
@@ -67,7 +72,16 @@
                 <div id="post-list">
 
                 </div>
-                <div id="following">
+                <div class="posts-right" id="following">
+
+                </div>
+                <div class="posts-right" id="recommended">
+
+                </div>
+                <div class="posts-right" id="trending">
+
+                </div>
+                <div class="posts-right block-ad">
 
                 </div>
             </div>
