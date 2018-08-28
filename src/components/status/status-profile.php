@@ -12,7 +12,7 @@
 </div>
 <div id="photos">
     <?php
-        $photoQuantity = "SELECT * FROM pictures WHERE username=" . "'" . $_GET['username'] . "'" ; 
+        $photoQuantity = "SELECT * FROM pictures WHERE username=" . "'" . $_GET['id'] . "'" ; 
         $photoQuantityResult = mysqli_query($conn, $photoQuantity);
         $photoQuantityResultCheck = mysqli_num_rows($photoQuantityResult);
         $photoRow = mysqli_fetch_assoc($photoQuantityResultCheck);

@@ -8,7 +8,7 @@
         $password = mysqli_real_escape_string($_POST['login-password']);
         // Error Handlers
         if (empty($username) || empty($password)) {
-            header("Location: ../../index.php?status=login%login=empty");
+            header("Location: ../../index.php?status=login&login=empty");
             exit();
         } else {
             $userCheck = "SELECT * FROM users WHERE username='$username'";
@@ -18,14 +18,14 @@
             if ($userCheckRow) {
                 $dehashedPassword = password_verify($password, $userCheckRow['password']);
                 if (!$dehashedPassword) {
-                    header("Location: ../../index.php?status=login%login=password");
+                    header("Location: ../../index.php?status=login&login=password");
                     exit();
                 } else if ($dehashedPassword){
                     $_SESSION['username'] = $userCheckRow['username'];
-                    header("Location: ../../index.php?status=login%login=success");
+                    header("Location: ../../index.php?status=login&login=success");
                     exit();
                 } else {
-                    header("Location: ../../index.php?status=login%login=error");
+                    header("Location: ../../index.php?status=login&login=error");
                     exit();
                 }
             }

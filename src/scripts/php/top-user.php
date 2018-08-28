@@ -2,7 +2,7 @@
     <a id="login-button" href="index.php?status=login">Log in</a>
     <a id="signup-button" href="index.php?status=signup">Sign up</a>
 <?php elseif (isset($_SESSION['username'])): ?>
-    <a href="index.php?status=profile%id=<?= $_SESSION['username'] ?>" id="top-username">
+    <a href="index.php?status=profile&id=<?= $_SESSION['username'] ?>" id="top-username">
         <?php echo $_SESSION['username'];?>
     </a>
     <?php 

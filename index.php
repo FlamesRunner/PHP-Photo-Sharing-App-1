@@ -7,20 +7,18 @@
 <html>
     <head>
         <title>Photo Sharing app</title>
-        <link href="src/scripts/css/main.css" type="rel/stylesheet">
-        <script type="text/javascript" src="src/scripts/javascript/main.js"></script>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" type="rel/stylesheet">
+        <?php require_once 'src/components/head.php'; ?>
     </head>
     <body onload="onLoad()">
         <div id="top">
-            <div id="menu">
+            <div id="top-menu">
                 <i class="fa fa-bars" style="color:white; font-size:25px;"></i>
             </div>
             <div id="search">
                 <input id="search-bar" name="search-bar" placeholder="People, Places, Topics...">
                 <?php require_once 'src/scripts/php/top-search.php'; ?>
             </div>
-            <h1 id="top-title">PHP Photo Sharing App</h1>
+            <h1 id="top-title"><a href="index.php">PHP Photo Sharing App</a></h1>
             <div id="user">
                 <?php require_once 'src/scripts/php/top-user.php'; ?>
             </div>
@@ -28,6 +26,9 @@
         
         <?php if (isset($_GET['status'])) { ?>
             <div id="status">
+                <div id="status-header">
+                    
+                </div>
                 <?php include_once 'src/components/status/status-' . $_GET['status'] . '.php'; ?>
             </div>
         <?php } ?>

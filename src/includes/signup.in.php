@@ -6,27 +6,27 @@
         $email = strip_tags(mysqli_real_escape_string($_POST['signup-email']));
         // error handlers
         if (empty($username) || empty($password) || empty($email)) {
-            header('Location: ../../index.php?status=signup%signup=empty');
+            header('Location: ../../index.php?status=signup&signup=empty');
             exit();
         } else {
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                header('Location: ../../index.php?status=signup%signup=email');
+                header('Location: ../../index.php?status=signup&signup=email');
                 exit();
             } else {
                 $usernameCheck = "SELECT username FROM users WHERE username='$username'";
                 $usernameCheckResult = mysqli_query($conn, $usernameCheck);
                 $usernameCheckResultCheck = mysqli_num_rows();
                 if ($usernameCheckResultCheck > 0) {
-                    header('Location: ../../index.php?status=signup%signup=username');
+                    header('Location: ../../index.php?status=signup&signup=username');
                     exit();
                 } else {
                     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
                     $insertUser = "INSERT INTO users (username, password, email) VALUES ($username, $hashedPassword, $email)";
                     if (mysqli_query($insertUser)) {
-                        header('Location: ../../index.php?status=signup%signup=success');
+                        header('Location: ../../index.php?status=signup&signup=success');
                         exit();
                     } else {
-                        header('Location: ../../index.php?status=signup%signup=error');
+                        header('Location: ../../index.php?status=signup&signup=error');
                         exit();
                     }
                 }
