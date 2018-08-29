@@ -9,11 +9,12 @@
         $profilePic = "SELECT profile_pic FROM users WHERE username=" . "'" . $_SESSION['username'] . "'";
         $profilePicResult = mysqli_query($conn, $profilePic);
         $profilePicResultCheck = mysqli_num_rows($profilePicResult);
+        $profilePicResultRow = mysqli_fetch_assoc($profilePicResultCheck);
     ?>
     <?php if ($profilePicResultCheck > 0): ?>
-        <img id="profile-pic" src="src/app_data/user/<?= $profilePicResult ?>"></img>
+        <img id="profile-pic" src="src/app_data/user/<?= $profilePicResultRow['profile_pic'] ?>"></img>
     <?php elseif ($profilePicResultCheck < 1): ?>
         <img id="profile-pic" src="src/images/default-profile-pic.jpg"></img>
     <?php endif; ?>
-    <button id="user-dropdown" onclick="openUserDropdown"><!-- Logout and other options --></button>
+    <button id="user-dropdown" onclick="openUserDropdown()"><!-- Logout and other options --></button>
 <?php endif; ?>
