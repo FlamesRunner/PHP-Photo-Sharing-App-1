@@ -13,9 +13,10 @@ Primary color: rgb(102, 0, 255)
     right: 0px;
     font-family: 'Roboto', sans-serif;
     color: white;
+    text-align: center;
 }
 
-#top * {
+#top div {
     display: inline-block;
     position: relative;
     margin: auto;

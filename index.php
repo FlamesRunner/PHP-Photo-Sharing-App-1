@@ -14,12 +14,16 @@
             <div id="top-menu">
                 <i class="fa fa-bars" style="color:white; font-size:25px;"></i>
             </div>
-            <div id="search">
+            <div id="top-search">
                 <input id="search-bar" name="search-bar" placeholder="People, Places, Topics...">
                 <?php require_once 'src/scripts/php/top-search.php'; ?>
             </div>
-            <h1 id="top-title"><a href="index.php">PHP Photo Sharing App</a></h1>
-            <div id="user">
+            <div id="top-title">
+                <h1>
+                    <a href="index.php">PHP Photo Sharing App</a>
+                </h1>
+            </div>
+            <div id="top-user">
                 <?php require_once 'src/scripts/php/top-user.php'; ?>
             </div>
         </div>
