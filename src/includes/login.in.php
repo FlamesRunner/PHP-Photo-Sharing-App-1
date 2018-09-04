@@ -14,20 +14,25 @@
             $userCheck = "SELECT * FROM users WHERE username='$username'";
             $userCheckResult = mysqli_query($conn, $userCheck);
             $userCheckResultCheck = mysqli_num_rows($userCheckResult);
-            $userCheckRow = mysqli_fetch_assoc($userCheckResultCheck);
-            if ($userCheckRow) {
-                $dehashedPassword = password_verify($password, $userCheckRow['password']);
-                if (!$dehashedPassword) {
-                    header("Location: ../../index.php?status=login&login=password");
-                    exit();
-                } else if ($dehashedPassword){
-                    $_SESSION['username'] = $userCheckRow['username'];
-                    header("Location: ../../index.php?status=login&login=success");
-                    exit();
-                } else {
-                    header("Location: ../../index.php?status=login&login=error");
-                    exit();
+            if ($userCheckResultCheck > 0) {
+                $userCheckRow = mysqli_fetch_assoc($userCheckResultCheck);
+                if ($userCheckRow) {
+                    $dehashedPassword = password_verify($password, $userCheckRow['password']);
+                    if (!$dehashedPassword) {
+                        header("Location: ../../index.php?status=login&login=password");
+                        exit();
+                    } else if ($dehashedPassword){
+                        $_SESSION['username'] = $userCheckRow['username'];
+                        header("Location: ../../index.php?status=login&login=success");
+                        exit();
+                    } else {
+                        header("Location: ../../index.php?status=login&login=error");
+                        exit();
+                    }
                 }
+            } else if ($userCheckResultCheck == 0) {
+                header("Location: ../../index.php?status=login&login=no-user");
+                exit();
             }
         }
     } else {

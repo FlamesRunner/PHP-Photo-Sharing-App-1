@@ -31,9 +31,12 @@
         <?php if (isset($_GET['status'])) { ?>
             <div id="status">
                 <div id="status-header">
-                    
+                    <i class="fa fa-left-arrow" style=""><i>
+                    <p><?= $_GET['status'] ?></p>
                 </div>
-                <?php include_once 'src/components/status/status-' . $_GET['status'] . '.php'; ?>
+                <div>
+                    <?php include_once 'src/components/status/status-' . $_GET['status'] . '.php'; ?>
+                </div>
             </div>
         <?php } ?>
 

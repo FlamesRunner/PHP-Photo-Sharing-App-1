@@ -20,6 +20,7 @@ Primary color: rgb(102, 0, 255)
     display: inline-block;
     position: relative;
     margin: auto;
+    height: 100%;
 }
 
 #top a {

@@ -7,9 +7,16 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS photos (
     username VARCHAR(16) NOT NULL,
-    id INT NOT NULL,
+    id INT NOT NULL AUTO_INCREMENT,
     text VARCHAR(36) NULL,
     created VARCHAR(100) NOT NULL,
     url VARCHAR(100) NOT NULL,
     PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS comments (
+    username VARCHAR(16) NOT NULL,
+    photo_id INT NOT NULL,
+    created VARCHAR(100) NOT NULL,
+    text VARCHAR(1500) NOT NULL
 );

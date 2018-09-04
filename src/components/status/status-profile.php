@@ -21,8 +21,8 @@
         }
         // Create a multidimensional array of the user's photos and match them to their URL from the database.
         $photos = array();
-        for ($id = 0; $id <= $photoQuantityResultCheck; $i++) {
-            $photos[$id] = array($photoRow['created'], $photoRow['text'], $photoRow['url']);
+        for ($id = 0; $id <= $photoQuantityResultCheck; $id++) {
+            $photos[$id] = array($photoRow['created'], $photoRow['text'], $photoRow['url'], $photoRow['id']);
         }
         usort($photos, 'imageSortFunction');
     ?>

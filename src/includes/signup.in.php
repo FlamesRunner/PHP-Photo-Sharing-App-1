@@ -15,11 +15,11 @@
             } else {
                 $usernameCheck = "SELECT username FROM users WHERE username='$username'";
                 $usernameCheckResult = mysqli_query($conn, $usernameCheck);
-                $usernameCheckResultCheck = mysqli_num_rows();
+                $usernameCheckResultCheck = mysqli_num_rows($usernameCheckResult);
                 if ($usernameCheckResultCheck > 0) {
                     header('Location: ../../index.php?status=signup&signup=username');
                     exit();
-                } else {
+                } else if ($usernameCheckResultCheck == 0) {
                     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
                     $insertUser = "INSERT INTO users (username, password, email) VALUES ($username, $hashedPassword, $email)";
                     if (mysqli_query($insertUser)) {

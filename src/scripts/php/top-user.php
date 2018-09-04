@@ -9,7 +9,7 @@
         $profilePic = "SELECT profile_pic FROM users WHERE username=" . "'" . $_SESSION['username'] . "'";
         $profilePicResult = mysqli_query($conn, $profilePic);
         $profilePicResultCheck = mysqli_num_rows($profilePicResult);
-        $profilePicResultRow = mysqli_fetch_assoc($profilePicResultCheck);
+        $profilePicResultRow = mysqli_fetch_assoc($profilePicResult);
     ?>
     <?php if ($profilePicResultCheck > 0): ?>
         <img id="profile-pic" src="src/app_data/user/<?= $profilePicResultRow['profile_pic'] ?>"></img>
