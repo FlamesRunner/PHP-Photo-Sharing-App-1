@@ -31,3 +31,8 @@ Primary color: rgb(102, 0, 255)
 #top-menu {
     float: left;
 }
+
+#status {
+    width: 100%;
+    margin-top: 75px;
+}

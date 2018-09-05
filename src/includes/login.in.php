@@ -15,7 +15,7 @@
             $userCheckResult = mysqli_query($conn, $userCheck);
             $userCheckResultCheck = mysqli_num_rows($userCheckResult);
             if ($userCheckResultCheck > 0) {
-                $userCheckRow = mysqli_fetch_assoc($userCheckResultCheck);
+                $userCheckRow = mysqli_fetch_assoc($userCheckResult);
                 if ($userCheckRow) {
                     $dehashedPassword = password_verify($password, $userCheckRow['password']);
                     if (!$dehashedPassword) {
