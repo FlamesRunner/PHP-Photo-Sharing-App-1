@@ -1,5 +1,5 @@
 <?php
-    $profileId = "SELECT * FROM users WHERE username=" . "'" . $_GET['id'] . "'";
+    $profileId = "SELECT * FROM users WHERE username=" . $_GET['id'];
     $profileIdResult = mysqli_query($profileId);
     $profileIdResultCheck = mysqli_num_rows($profileIdResult);
     if ($profileIdResultCheck > 0) : 
@@ -18,7 +18,7 @@
     </div>
     <div id="photos">
         <?php
-            $photoQuantity = "SELECT * FROM photos WHERE username=" . "'" . $_GET['id'] . "'" ; 
+            $photoQuantity = "SELECT * FROM photos WHERE username=" . $_GET['id']; 
             $photoQuantityResult = mysqli_query($conn, $photoQuantity);
             $photoQuantityResultCheck = mysqli_num_rows($photoQuantityResult);
             $photoRow = mysqli_fetch_assoc($photoQuantityResult);

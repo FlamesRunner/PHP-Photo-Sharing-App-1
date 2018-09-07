@@ -6,7 +6,7 @@
         <?php echo $_SESSION['username'];?>
     </a>
     <?php 
-        $profilePic = "SELECT profile_pic FROM users WHERE username=" . "'" . $_SESSION['username'] . "'";
+        $profilePic = "SELECT profile_pic FROM users WHERE username=" . $_SESSION['username'];
         $profilePicResult = mysqli_query($conn, $profilePic);
         $profilePicResultCheck = mysqli_num_rows($profilePicResult);
         $profilePicResultRow = mysqli_fetch_assoc($profilePicResult);
