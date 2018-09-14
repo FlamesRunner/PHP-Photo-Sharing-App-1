@@ -21,14 +21,15 @@
             $photoQuantity = "SELECT * FROM photos WHERE username=" . $_GET['id']; 
             $photoQuantityResult = mysqli_query($conn, $photoQuantity);
             $photoQuantityResultCheck = mysqli_num_rows($photoQuantityResult);
-            $photoRow = mysqli_fetch_assoc($photoQuantityResult);
             function imageSortFunction($a, $b) {
                 return strtotime($a['created']) - strtotime($b['created']);
             }
             // Create a multidimensional array of the user's photos and match them to their URL from the database.
             $photos = array();
-            for ($id = 0; $id <= $photoQuantityResultCheck; $id++) {
-                $photos[$id] = array($photoRow['created'], $photoRow['text'], $photoRow['url'], $photoRow['id']);
+            if ($photoRow = mysqli_fetch_assoc($photoQuantityResult)) {
+                for ($id = 0; $id <= $photoQuantityResultCheck; $id++) {
+                    $photos[$id] = array($photoRow['created'], $photoRow['text'], $photoRow['url'], $photoRow['id']);
+                }
             }
             usort($photos, 'imageSortFunction');
         ?>
