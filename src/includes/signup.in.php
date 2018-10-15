@@ -34,7 +34,7 @@
                             exit();
                         }
                         mkdir('../app_data/user/' . $username);
-                        // for Delete-user script, use rmdir(). To remove a file, use unlink().
+                        // for Delete-user script, use rmdir() to remove file. To remove a file, use unlink().
                     }
                 }
             }

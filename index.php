@@ -58,7 +58,7 @@
                 <a href="index.php?status=about">About</a>
             </div>
         </div>
-
+        
         <div id="main-scroll">
             <p id="main-scroll-text">&rarr</p>
         </div>
